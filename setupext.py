@@ -1209,6 +1209,7 @@ def build_agg(ext_modules, packages):
            'agg_vcgen_dash.cpp',
            'agg_vcgen_stroke.cpp',
            'agg_image_filters.cpp',
+           'agg_vpgen_segmentator.cpp'
            )
 
     deps = ['%s/src/%s'%(AGG_VERSION, name) for name in agg]
@@ -1241,6 +1242,7 @@ def build_path(ext_modules, packages):
            'agg_bezier_arc.cpp',
            'agg_trans_affine.cpp',
            'agg_vcgen_stroke.cpp',
+           'agg_vpgen_segmentator.cpp'
            )
 
     deps = ['%s/src/%s'%(AGG_VERSION, name) for name in agg]
