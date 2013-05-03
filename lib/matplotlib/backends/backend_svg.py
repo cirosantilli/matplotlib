@@ -71,6 +71,11 @@ def escape_cdata(s):
     s = s.replace(u">", u"&gt;")
     return s
 
+def escape_comment(s):
+    s = escape_cdata(s)
+    s = s.replace(u"--", u"- -")
+    return s
+
 def escape_attrib(s):
     s = s.replace(u"&", u"&amp;")
     s = s.replace(u"'", u"&apos;")
@@ -146,7 +151,7 @@ class XMLWriter:
     def comment(self, comment):
         self.__flush()
         self.__write(self.__indentation[:len(self.__tags)])
-        self.__write(u"<!-- %s -->\n" % escape_cdata(comment))
+        self.__write(u"<!-- %s -->\n" % escape_comment(comment))
 
     ##
     # Adds character data to the output stream.
